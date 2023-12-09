@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <!-- Actions opening QR Scanner Page -->
+        <record model="ir.actions.act_url" id="qr_scanner.action_url">
+            <field name="name">QR Scanner</field>
+            <field name="url">/qr_scanner</field>
+        </record>
+
+        <!-- Top menu item -->
+        <menuitem name="QR Scanner" id="qr_scanner.menu_root" action="qr_scanner.action_url"/>
+
+    </data>
+</odoo>

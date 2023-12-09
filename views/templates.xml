@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+        <!-- Index QR Scanner Page -->
+        <template id="qr_scanner.index" name="QR Scanner">
+            <t t-call="web.layout">
+                <t t-set="title">QR Scanner</t>
+                <link rel="stylesheet" href="/qr_scanner/static/src/css/qr_scanner.css"/>
+                <h1>Scan from WebCam:</h1>
+                <div id="video-container">
+                    <video id="qr-video" width="320" height="240" muted="muted" playsinline="true"/>
+                </div>
+                <div>
+                    <label>
+                        Highlight Style
+                        <select id="scan-region-highlight-style-select">
+                            <option value="default-style">Default style</option>
+                            <option value="example-style-1">Example custom style 1</option>
+                            <option value="example-style-2">Example custom style 2</option>
+                        </select>
+                    </label>
+                    <label>
+                        <input id="show-scan-region" type="checkbox"/>
+                        Show scan region canvas
+                    </label>
+                </div>
+                <div>
+                    <select id="inversion-mode-select">
+                        <option value="original">Scan original (dark QR code on bright background)</option>
+                        <option value="invert">Scan with inverted colors (bright QR code on dark background)</option>
+                        <option value="both">Scan both</option>
+                    </select>
+                    <br/>
+                </div>
+                <b>Device has camera:</b>
+                <span id="cam-has-camera"/>
+                <br/>
+                <div>
+                    <b>Preferred camera:</b>
+                    <select id="cam-list">
+                        <option value="environment">Environment Facing (default)</option>
+                        <option value="user">User Facing</option>
+                    </select>
+                </div>
+                <b>Camera has flash:</b>
+                <span id="cam-has-flash"/>
+                <div>
+                    <button id="flash-toggle">Flash:
+                        <span id="flash-state">off</span>
+                    </button>
+                </div>
+                <br/>
+                <b>Detected QR code:</b>
+                <span id="cam-qr-result">None</span>
+                <br/>
+                <b>Last detected at:</b>
+                <span id="cam-qr-result-timestamp"/>
+                <br/>
+                <button id="start-button">Start</button>
+                <button id="stop-button">Stop</button>
+                <hr/>
+
+                <h1>Scan from File:</h1>
+                <input type="file" id="file-selector"/>
+                <b>Detected QR code:</b>
+                <span id="file-qr-result">None</span>
+            </t>
+            <script type="text/javascript" src="/qr_scanner/static/src/js/qr-scanner.legacy.min.js"/>
+            <script type="text/javascript" src="/qr_scanner/static/src/js/qr_scanner.js"/>
+        </template>
+    </data>
+</odoo>
